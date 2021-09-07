@@ -1,2 +1,2 @@
-#learning higher level programming languages
-#python
+# - learning higher level programming languages
+# - python
