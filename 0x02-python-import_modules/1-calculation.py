@@ -2,7 +2,7 @@
 # 1-calculation.py
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     """print multiplication, sum, quotient, sub of 10 & 5"""
     from calculator_1 import add, sub, mul, div
 
