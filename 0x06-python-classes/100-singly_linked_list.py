@@ -1,85 +1,79 @@
 #!/usr/bin/python3
-"""
-No module imported
-"""
+# 100-singly_linked_list.py
+"""Define classes for a singly-linked list."""
 
 
-class Square:
-    """
-    Private instance attribute size
-    public instance method
-    """
-    def __init__(self, size=0):
-        """
-	private instance attribute
-        parameters
-        -------------------------
-        size : integer else TypeError
-        if size less than 0, raise value error
+class Node:
+    """Represent a node in a singly-linked list."""
+
+    def __init__(self, data, next_node=None):
+        """Initialize a new Node.
+        Args:
+            data (int): The data of the new Node.
+            next_node (Node): The next node of the new Node.
 
         """
-        self.__size = size
+        self.data = data
+        self.next_node = next_node
 
     @property
-    def size(self):
+    def data(self):
+        """Get/set the data of the Node."""
+        return (self.__data)
+
+    @data.setter
+    def data(self, value):
+        if not isinstance(value, int):
+            raise TypeError("data must be an integer")
+        self.__data = value
+
+    @property
+    def next_node(self):
+        """Get/set the next_node of the Node."""
+        return (self.__next_node)
+
+    @next_node.setter
+    def next_node(self, value):
+        if not isinstance(value, Node) and value is not None:
+            raise TypeError("next_node must be a Node object")
+        self.__next_node = value
+
+
+class SinglyLinkedList:
+    """Represent a singly-linked list."""
+
+    def __init__(self):
+        """Initalize a new SinglyLinkedList."""
+        self.__head = None
+
+    def sorted_insert(self, value):
+        """Insert a new Node to the SinglyLinkedList.
+        The node is inserted into the list at the correct
+        ordered numerical position.
+        Args:
+            value (Node): The new Node to insert.
+
         """
-        to retrieve private instance attribute
-        """
-        return self.__size
+        new = Node(value)
+        if self.__head is None:
+            new.next_node = None
+            self.__head = new
+        elif self.__head.data > value:
+            new.next_node = self.__head
+            self.__head = new
+        else:
+            tmp = self.__head
+            while (tmp.next_node is not None and
+                    tmp.next_node.data < value):
+                tmp = tmp.next_node
+            new.next_node = tmp.next_node
+            tmp.next_node = new
 
-    @size.setter
-    def size(self, value):
-        """
-        to set private instance attribute
-        """
-        self.__size = value
-        try:
-            assert type(value) == int
-        except:
-            raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-
-    def area(self):
-        """
-        public instance method
-        returns the current square area
-        """
-        area = self.__size ** 2
-        return area
-
-    def __lt__(self, other):
-        """check for less than"""
-        if self.__size ** 2 < other.__size ** 2:
-            return True
-        return False
-
-    def __le__(self, other):
-        """check for <="""
-        if self.__size ** 2 <= other.__size ** 2:
-            return True
-        return False
-
-    def __eq__(self, other):
-        """check for =="""
-        if self.__size ** 2 == other.__size ** 2:
-            return True
-        return False
-
-    def __ne__(self, other):
-        """check for !="""
-        if self.__size ** 2 != other.__size ** 2:
-            return True
-        return False
-
-    def __gt__(self, other):
-        """check for >"""
-        if self.__size ** 2 > other.__size ** 2:
-            return True
-        return False
-
-    def __ge__(self, other):
-        """check for >="""
-        if self.__size ** 2 >= other.__size ** 2:
-            return True
-        return False
+    def __str__(self):
+        """ Define the print() representation of a SinglyLinkedList."""
+        values = []
+        tmp = self.__head
+        while tmp is not None:
+            values.append(str(tmp.data))
+            tmp = tmp.next_node
+        return ('\n'.join(values))
