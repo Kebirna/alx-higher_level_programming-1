@@ -1,67 +1,85 @@
 #!/usr/bin/python3
 """
-This module defines a Singly linked list
+No module imported
 """
 
 
-class Node:
-    def __init__(self, data, next_node=None):
-        """Defines a node for a singly linked list"""
-        self.data = data
-        self.next_node = next_node
+class Square:
+    """
+    Private instance attribute size
+    public instance method
+    """
+    def __init__(self, size=0):
+        """
+	private instance attribute
+        parameters
+        -------------------------
+        size : integer else TypeError
+        if size less than 0, raise value error
+
+        """
+        self.__size = size
 
     @property
-    def data(self):
-        return self.__data
+    def size(self):
+        """
+        to retrieve private instance attribute
+        """
+        return self.__size
 
-    @data.setter
-    def data(self, value):
-        if type(value) != int:
-            raise TypeError('data must be an integer')
+    @size.setter
+    def size(self, value):
+        """
+        to set private instance attribute
+        """
+        self.__size = value
+        try:
+            assert type(value) == int
+        except:
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
 
-        self.__data = value
+    def area(self):
+        """
+        public instance method
+        returns the current square area
+        """
+        area = self.__size ** 2
+        return area
 
-    @property
-    def next_node(self):
-        return self.__next_node
+    def __lt__(self, other):
+        """check for less than"""
+        if self.__size ** 2 < other.__size ** 2:
+            return True
+        return False
 
-    @next_node.setter
-    def next_node(self, value):
-        if value is not None and type(value) != Node:
-            raise TypeError('next_node must be a Node object')
-        self.__next_node = value
+    def __le__(self, other):
+        """check for <="""
+        if self.__size ** 2 <= other.__size ** 2:
+            return True
+        return False
 
+    def __eq__(self, other):
+        """check for =="""
+        if self.__size ** 2 == other.__size ** 2:
+            return True
+        return False
 
-class SinglyLinkedList:
-    def __init__(self):
-        """Defines the singly linked list"""
-        self.__head = None
+    def __ne__(self, other):
+        """check for !="""
+        if self.__size ** 2 != other.__size ** 2:
+            return True
+        return False
 
-    def sorted_insert(self, value):
-        if self.__head is None:
-            self.__head = Node(value)
-        else:
-            current = self.__head
-            previous = None
-            while current and value > current.data:
-                previous = current
-                current = current.next_node
-            if current is None:
-                previous.next_node = Node(value)
-            elif current is self.__head and previous is None:
-                self.__head = Node(value, current)
-            else:
-                newNode = Node(value, current)
-                previous.next_node = newNode
+    def __gt__(self, other):
+        """check for >"""
+        if self.__size ** 2 > other.__size ** 2:
+            return True
+        return False
 
-    def __repr__(self):
-        node = self.__head
-        lt = ''
-        while 1:
-            lt += str(node.data)
-            node = node.next_node
-            if node.next_node is None:
-                break
-            else:
-                lt += '\n'
-        return lt
+    def __ge__(self, other):
+        """check for >="""
+        if self.__size ** 2 >= other.__size ** 2:
+            return True
+        return False
