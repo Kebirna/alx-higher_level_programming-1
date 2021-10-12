@@ -1,9 +1,7 @@
-#!/usr/bin/pythhon3
-""" returns a json representation of an object
-"""
+#!/usr/bin/python3
+"""json object"""
 
 
 def class_to_json(obj):
-    """returns a json representation of
-    the obj object"""
+    """dict obj"""
     return obj.__dict__
