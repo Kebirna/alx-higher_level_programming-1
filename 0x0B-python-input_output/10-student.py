@@ -1,41 +1,22 @@
-#!/usr/bin/pyton3
-"""Defiantion for a student class
-"""
+#!/usr/bin/python3
+"""json"""
 
 
 class Student:
-   """a class for a student
-   """
+    """A student."""
 
-   def __init__(self, first_name, last_name, age):
-       """Initalizes a student object
-       """
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-       self.first_name = first_name
-       self.last_name = last_name
-       self.age = age
-
-   def to_json(self, attrs=None):
-       """returns a json representatiion of
-       the object
-       """
-
-       if attrs != None and not isinstance(attrs, list):
-           raise TypeError("attrs must me a list of strings")
-
-       if attrs != None and any(not isinstance(attr, str) for attr in attrs):
-           raise TypeError("attrs must me a list of strings")
-
-       if attrs == None:
-           return self.__dict__
-
-       json_dic = {}
-       for key in attrs:
-           if key in self.__dict__.keys():
-               json_dic[key] = self.__dict__[key]
-
-       return json_dic
-
-
-
-
+    def to_json(self, attrs=None):
+        """Retrieve a dictionary representation of a Student instance."""
+        if attrs is not None and all(isinstance(x, str) for x in attrs):
+            d = {}
+            for k, v in self.__dict__.items():
+                if k in attrs:
+                    d[k] = v
+            return d
+        else:
+            return self.__dict__
