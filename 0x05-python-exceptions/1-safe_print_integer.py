@@ -3,7 +3,7 @@
 
 
 def safe_print_integer(value):
-    """function that prints an int with "{:d}".format()"""
+    """prints int"""
     try:
         print("{:d}".format(value))
         return (True)

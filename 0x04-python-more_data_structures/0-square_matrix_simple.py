@@ -3,5 +3,5 @@
 
 
 def square_matrix_simple(matrix=[]):
-    """Compute the sq value of all int in a matrix."""
+    """Compute square of all int elements in a matrix."""
     return ([[col * col for col in row] for row in matrix])

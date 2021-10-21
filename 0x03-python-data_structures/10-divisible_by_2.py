@@ -3,12 +3,12 @@
 
 
 def divisible_by_2(my_list=[]):
-    """Find all multiples of 2 in a list."""
-    multiples = []
-    for i in range(len(my_list)):
-        if my_list[i] % 2 == 0:
-            multiples.append(True)
+    """Find even"""
+    even = []
+    for j in range(len(my_list)):
+        if my_list[j] % 2 == 0:
+            even.append(True)
         else:
-            multiples.append(False)
+            even.append(False)
 
-    return (multiples)
+    return (even)

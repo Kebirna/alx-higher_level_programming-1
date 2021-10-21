@@ -3,14 +3,14 @@
 
 
 def best_score(a_dictionary):
-    """Returns a key with the biggest integer value."""
+    """return a key with big int value."""
     if not isinstance(a_dictionary, dict) or len(a_dictionary) == 0:
         return None
 
     lst = list(a_dictionary.keys())[0]
-    lg = a_dictionary[lst]
-    for i, j in a_dictionary.items():
-        if v > lg:
-            lg = j
-            lst = i
+    bg = a_dictionary[lst]
+    for j, k in a_dictionary.items():
+        if v > bg:
+            bg = j
+            lst = j
     return (lst)

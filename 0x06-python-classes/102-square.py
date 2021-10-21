@@ -1,84 +1,72 @@
 #!/usr/bin/python3
-"""
-No module imported
-"""
+# 102-square.py
 
 
 class Square:
-    """
-    Private instance attribute size
-    public instance method
-
-    """
+    """rep square"""
     def __init__(self, size=0):
-        """private instance attribute
-        parameters
-        -------------------------
-        size : integer else TypeError
-        if size less than 0, raise value error
+        """
+        size : sze
         """
         self.__size = size
 
     @property
     def size(self):
         """
-        to retrieve private instance attribute
+        get private instance attr
         """
         return self.__size
 
     @size.setter
-    def size(self, value):
+    def size(self, val):
         """
-        to set private instance attribute
+        set instance attr
         """
-        self.__size = value
+        self.__size = val
         try:
-            assert type(value) == int
+            assert type(val) == int
         except:
-            raise TypeError("size must be an integer")
-        if value < 0:
+            raise TypeError("size must be of int")
+        if val < 0:
             raise ValueError("size must be >= 0")
 
     def area(self):
-        """
-        public instance method
-        returns the current square area
-        """
+        """return area"""
         area = self.__size ** 2
         return area
 
-    def __lt__(self, other):
-        """check for less than"""
-        if self.__size ** 2 < other.__size ** 2:
+    def __lt__(self, tmp):
+        """check <"""
+        if self.__size ** 2 < tmp.__size ** 2:
             return True
         return False
 
-    def __le__(self, other):
-        """check for <="""
-        if self.__size ** 2 <= other.__size ** 2:
+    def __le__(self, tmp):
+        """check <="""
+        if self.__size ** 2 <= tmp.__size ** 2:
             return True
         return False
 
-    def __eq__(self, other):
+    def __eq__(self, tmp):
         """check for =="""
-        if self.__size ** 2 == other.__size ** 2:
+        if self.__size ** 2 == tmp.__size ** 2:
             return True
         return False
 
-    def __ne__(self, other):
+    def __ne__(self, tmp):
         """check for !="""
-        if self.__size ** 2 != other.__size ** 2:
+        if self.__size ** 2 != tmp.__size ** 2:
             return True
         return False
 
-    def __gt__(self, other):
+    def __gt__(self, tmp):
         """check for >"""
-        if self.__size ** 2 > other.__size ** 2:
+        if self.__size ** 2 > tmp.__size ** 2:
             return True
         return False
 
-    def __ge__(self, other):
+    def __ge__(self, tmp):
         """check for >="""
-        if self.__size ** 2 >= other.__size ** 2:
+        if self.__size ** 2 >= tmp.__size ** 2:
             return True
         return False

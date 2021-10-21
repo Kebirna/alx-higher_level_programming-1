@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-#Author Hileamlak M. Yitayew
-"""Defines a funciton that adds two number
+"""Defines func that adds two number
 """
 
 
 def add_integer(a, b=98):
-    """Adds two numbers
+    """Adds two nums
     """
-    if type(a) not in [int, float]:
-        raise TypeError("a must be an integer")
-    if type(b) not in [int, float]:
-        raise TypeError("b must be an integer")
-    return int(a) + int(b)
+    if a != int(a) and a != float(a):
+        raise TypeError("a must be int")
+    if b != int(b) and b != int(b):
+        raise TypeError("b must be int")
+    return a + b

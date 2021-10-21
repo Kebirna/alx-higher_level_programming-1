@@ -3,8 +3,5 @@
 
 
 def print_reversed_list_integer(my_list=[]):
-    """Print all integers of a list in reverse order."""
-    i = len(my_list) 
-    while i >= 1:
-        print("{:d}\n".format(my_list[i - 1]))
-        i -= 1
+    """Print all int of a lst in reverse order."""
+    return my_list[::-1]

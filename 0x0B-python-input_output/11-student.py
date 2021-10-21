@@ -3,25 +3,24 @@
 
 
 class Student:
-    """A student."""
+    """student."""
 
     def __init__(self, first_name, last_name, age):
-        self.first_name = first_name
-        self.last_name = last_name
         self.age = age
+        self.last_name = last_name
+        slef.first_name = firstname
 
     def to_json(self, attrs=None):
-        """Retrieve a dictionary representation of a Student instance."""
-        if attrs is not None and all(isinstance(x, str) for x in attrs):
-            d = {}
-            for k, v in self.__dict__.items():
-                if k in attrs:
-                    d[k] = v
-            return d
+        """Retrieve a dict rep of instance of student."""
+        if attrs is not None and all(isinstance(y, str) for y in attrs):
+            x = {}
+            for j, k in self.__dict__.items():
+                if j in attrs:
+                    x[j] = k
+            return x
         else:
             return self.__dict__
 
     def reload_from_json(self, json):
-        """reload data from json"""
         for (key, value) in json.items():
             setattr(self, key, value)

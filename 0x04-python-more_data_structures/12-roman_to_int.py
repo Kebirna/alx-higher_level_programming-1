@@ -3,8 +3,8 @@
 
 
 def roman_to_int(roman_string):
-    """Converts a roman numeral to an int."""
-    if (not isinstance(roman_string, str) or
+    """Convert roman numeral to int."""
+    if roman_string != str(roman_string) or
             roman_string is None):
         return (0)
 
@@ -19,14 +19,14 @@ def roman_to_int(roman_string):
     }
     num = 0
 
-    for i in range(len(roman_string)):
-        if roman_dict.get(roman_string[i], 0) == 0:
+    for j in range(len(roman_string)):
+        if roman_dict.get(roman_string[j], 0) == 0:
             return (0)
 
-        if (i != (len(roman_string) - 1) and
-                roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
-                num += roman_dict[roman_string[i]] * -1
+        if (j != (len(roman_string) - 1) and
+                roman_dict[roman_string[j]] < roman_dict[roman_string[j + 1]]):
+                num += roman_dict[roman_string[j]] * -1
 
         else:
-            num += roman_dict[roman_string[i]]
+            num += roman_dict[roman_string[j]]
     return (num)

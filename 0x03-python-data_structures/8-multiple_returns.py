@@ -3,7 +3,7 @@
 
 
 def multiple_returns(sentence):
-    """Returns len of a str and its 1st char."""
+    """returns len of a str and first char."""
     if sentence == "":
         return (0, None)
     return (len(sentence), sentence[0])

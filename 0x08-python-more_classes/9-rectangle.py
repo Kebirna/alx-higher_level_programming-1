@@ -1,48 +1,47 @@
 #!/usr/bin/python3
 """
-This module defines the a Rectangle Object.
+defines Rectangle obj.
 """
 
 
 class Rectangle:
-    """Retangle object with getter and setters
-    """
+    """Rectangle obj"""
 
-    number_of_instances = 0
-    print_symbol = "#"
+    instances = 0
+    sign = "#"
 
     def __init__(self, width=0, height=0):
-        self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
+        self.width = width
+        Rectangle.instances += 1
 
     def __str__(self):
-        total = ""
+        sum = ""
         if self.__height == 0 or self.width == 0:
-            return total
-        for i in range(self.__height):
-            total += (str(self.print_symbol) * self.__width)
-            if i != self.__height - 1:
-                total += "\n"
-        return total
+            return sum
+        for x in range(self.__height):
+            sum += (str(self.sign) * self.__width)
+            if x != self.__height - 1:
+                sum += "\n"
+        return sum
 
     def __repr__(self):
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
+        Rectangle.instances -= 1
 
     @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area() >= rect_2.area():
-            return rect_1
+    def bigger_or_equal(rectangle1, rectangle2):
+        if not isinstance(rectangle1, Rectangle):
+            raise TypeError("rectangle1 must be an instance of Rectangle")
+        if not isinstance(rectangle2, Rectangle):
+            raise TypeError("rectangle2 must be an instance of Rectangle")
+        if rectangle1.area() >= rectangle2.area():
+            return rectangle1
         else:
-            return rect_2
+            return rectangle2
 
     @classmethod
     def square(cls, size=0):
@@ -54,7 +53,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        if not isinstance(value, int):
+        if value != int(value):
             raise TypeError('width must be an integer')
         elif value < 0:
             raise ValueError('width must be >= 0')
@@ -66,7 +65,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        if not isinstance(value, int):
+        if value != int(value):
             raise TypeError('height must be an integer')
         elif value < 0:
             raise ValueError('height must be >= 0')

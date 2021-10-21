@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-#Author Hileamlak M. Yitayew
-"""define function for printing indented text
+"""text_indentation
 """
 
 
 def text_indentation(text):
-    """Prints indentations for a string
+    """Prints indentations for str
     """
-    special = ['.', '?', ':']
+    symbol = ['.', '?', ':']
     if type(text) != str:
-        raise TypeError("text must be string")
+        raise TypeError("text must of str")
     for x in text:
         print(x, end='')
-        if x in special:
+        if x in symbol:
             print('\n\n', end='')

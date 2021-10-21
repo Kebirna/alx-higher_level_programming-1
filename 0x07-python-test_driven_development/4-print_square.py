@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-#Author Hileamlak M. Yitayew
-"""Defines the print_square function
+"""print_square
 """
 
 
 def print_square(size):
-    """Prints a square
+    """Prints square
     """
     if type(size) != int:
-        raise TypeError("size must be an integer")
+        raise TypeError("size must be of int")
     if size < 0:
         raise ValueError("size must be >= 0")
-    for x in range(size):
-        for y in range(size):
+    for i in range(size):
+        for j in range(size):
             print("#", end='')
         print()

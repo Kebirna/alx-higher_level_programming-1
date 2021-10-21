@@ -2,13 +2,13 @@
 
 
 def magic_calculation(a, b):
-    """Does a task based on a bytcode"""
+    """does task depending on bytcode"""
     from magic_calculation_102 import add, sub
 
     if a < b:
         c = add(a, b)
-        for i in range(4, 6):
-            c = add(c, i)
+        for j in range(4, 6):
+            c = add(c, j)
         return (c)
     else:
         return (sub(a, b))

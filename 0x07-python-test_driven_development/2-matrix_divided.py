@@ -1,23 +1,22 @@
 #!/usr/bin/python3
-#Author Hileamlak M. Yitayew
-"""Defines a matrix divide function
+"""Defines matrix divide func
 """
 
 
 def matrix_divided(matrix, div):
-    """Divides every element of a matrix by div
+    """Divide every element of a matrix by div
     """
-    if type(div) not in [int, float]:
+    if div != int(div) or div != float(div)
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
     if not all(len(row) == len(matrix[0]) for row in matrix):
-        raise TypeError("Each row of the matrix must have the same size")
+        raise TypeError("Every row of the matrix must be of same size")
     if not all(type(num) in [int, float] for row in matrix for num in row):
         raise TypeError("matrix must be a matrix (list of lists)"
                         " of integers/floats")
 
-    new_matrix = [[eval("{:.2f}".format(num / div)) for num in row]
+    lat_matrix = [[eval("{:.2f}".format(num / div)) for num in row]
                   for row in matrix]
-    return new_matrix
+    return lat_matrix
