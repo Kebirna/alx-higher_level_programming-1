@@ -18,12 +18,11 @@ def fetch_first():
         'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
     session = Session(engine)
 
-    for state in session.query(State):
-        if state is not None:
-            print(f'{state.id}: {state.name}')
-            break
-        else:
+    states = session.query(State.id, State.name).first()
+        if states is None:
             print("Nothing")
+        else:
+            print(f'{states[0]}: {states[1]}')
 
 if __name__ == '__main__':
     fetch_first()
