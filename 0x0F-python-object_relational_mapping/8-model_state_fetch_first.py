@@ -19,8 +19,11 @@ def fetch_first():
     session = Session(engine)
 
     for state in session.query(State):
-        print(f'{state.id}: {state.name}')
-        break
+        if state is not None:
+            print(f'{state.id}: {state.name}')
+            break
+        else:
+            print("Nothing")
 
 if __name__ == '__main__':
     fetch_first()
