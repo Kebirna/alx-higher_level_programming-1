@@ -13,7 +13,7 @@ def N_states():
     """defining func"""
 
     conn = MySQLdb.connect(host='localhost', port=3306,
-                           user='root', passwd='14298uppah', db='hbtn_0e_0_usa')
+                           user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     cur = conn.cursor()
     cur.execute(
         "SELECT id, name FROM `states` WHERE name LIKE 'N%' ORDER BY id ASC")
