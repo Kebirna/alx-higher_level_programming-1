@@ -10,6 +10,6 @@ if __name__ == '__main__':
     url = 'https://intranet.hbtn.io/status'
     req = requests.get(url)
     print('Body response:')
-    print(f'\t- type: {type(req.text)}')
-    print(f'\t- content: {req.text}')
+    print('\t- type: {}'.format(type(req.text)))
+    print('\t- content: {}'.format(type(req.text)))
 
