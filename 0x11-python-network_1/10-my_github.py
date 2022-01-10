@@ -10,8 +10,7 @@ from requests.auth import HTTPBasicAuth
 
 if __name__ == "__main__":
     username = sys.argv[1]
-    paswd = sys.argv[2]
-    hdrs = {"Accept": "application/vnd.github.v3+json"}
-    url = "https://api.github.com/user"
-    r = requests.get(url,  auth=(username, paswd), headers=hdrs)
-    print(r.json()["id"])
+    passwd = sys.argv[2]
+    auth = HTTPBasicAuth(username, passwd)
+    req = requests.get("https://api.github.com/user",auth=auth)
+    print(req.json()["id"])
