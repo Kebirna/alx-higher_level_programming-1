@@ -1,9 +1,8 @@
 -- creates the db htbn_0d_usa and table cities
-CREATE database IF NOT EXISTS hbtn_0d_usa;
-CREATE TABLE IF NOT EXISTS `hbtn_0d_usa.cities`(
-	`id` int unique auto_increment not null,
-	`state_id` int not null,
-	`name` varchar(256) not null,
-	PRIMARY KEY(`id`),
-	FOREIGN KEY(`state_id`) REFERENCES hbtn_0d_usa.states(id)
-);
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
+USE hbtn_0d_usa;
+CREATE TABLE IF NOT EXISTS hbtn_0d_usa.cities(
+       id INT UNIQUE AUTO_INCREMENT NOT NULL PRIMARY KEY,
+       state_id INT NOT NULL,
+       FOREIGN KEY(state_id) REFERENCES states(id),
+       name VARCHAR(256) NOT NULL);
