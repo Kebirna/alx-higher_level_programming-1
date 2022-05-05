@@ -1,7 +1,6 @@
 -- lsts all show from hbtn_0d_tvshows_rate
-SELECT title, SUM(rate) AS rate
-FROM tv_shows as ts
-INNER JOIN tv_show_ratings AS r
-ON ts.id = r.show_id
-GROUP BY title
-ORDER BY rate DESC;
+SELECT ts.title, SUM(tsr.rate) AS rating
+FROM tv_shows AS ts
+INNER JOIN tv_show_ratings AS tsr ON tsr.show_id = ts.id
+GROUP BY ts.title
+ORDER BY rating DESC;
